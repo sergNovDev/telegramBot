@@ -1,0 +1,1273 @@
+2023-12-29T12:21:36.526+03:00  INFO 21288 --- [main] org.sergn.DispatcherApplication          : Starting DispatcherApplication using Java 17.0.7 with PID 21288 (C:\Users\SANovikov\IdeaProjects\teleServer\dispatcher\target\classes started by SANovikov in C:\Users\SANovikov\IdeaProjects\teleServer)
+2023-12-29T12:21:36.534+03:00  INFO 21288 --- [main] org.sergn.DispatcherApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-12-29T12:21:37.805+03:00  INFO 21288 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
+2023-12-29T12:21:37.818+03:00  INFO 21288 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-29T12:21:37.819+03:00  INFO 21288 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2023-12-29T12:21:37.950+03:00  INFO 21288 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-12-29T12:21:37.951+03:00  INFO 21288 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1344 ms
+2023-12-29T12:21:39.098+03:00  WARN 21288 --- [main] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: org.springframework.amqp.rabbit.core.RabbitAdmin
+2023-12-29T12:21:39.165+03:00  INFO 21288 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path ''
+2023-12-29T12:21:39.168+03:00  INFO 21288 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:21:39.185+03:00  INFO 21288 --- [main] o.s.a.r.l.SimpleMessageListenerContainer : Broker not available; cannot force queue declarations during start: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:21:39.194+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:21:39.207+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+
+org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+	at org.springframework.amqp.rabbit.support.RabbitExceptionTranslator.convertRabbitAccessException(RabbitExceptionTranslator.java:61) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:594) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory.createConnection(CachingConnectionFactory.java:711) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.createConnection(ConnectionFactoryUtils.java:257) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.doExecute(RabbitTemplate.java:2225) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2198) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2178) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.getQueueInfo(RabbitAdmin.java:465) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.getQueueProperties(RabbitAdmin.java:449) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.attemptDeclarations(AbstractMessageListenerContainer.java:1937) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.redeclareElementsIfNecessary(AbstractMessageListenerContainer.java:1905) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1381) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1223) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at com.rabbitmq.client.impl.SocketFrameHandlerFactory.create(SocketFrameHandlerFactory.java:61) ~[amqp-client-5.17.1.jar:5.17.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1234) ~[amqp-client-5.17.1.jar:5.17.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1184) ~[amqp-client-5.17.1.jar:5.17.1]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connectAddresses(AbstractConnectionFactory.java:632) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connect(AbstractConnectionFactory.java:607) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:557) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	... 12 common frames omitted
+
+2023-12-29T12:21:39.214+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:21:39.247+03:00  INFO 21288 --- [main] org.sergn.DispatcherApplication          : Started DispatcherApplication in 3.476 seconds (process running for 4.609)
+2023-12-29T12:21:44.254+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:21:44.261+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@69bc9584: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:21:44.262+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:21:44.275+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:21:44.275+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:21:49.309+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:21:49.310+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@6fb006f9: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:21:49.312+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:21:49.335+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:21:49.335+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:21:54.380+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:21:54.380+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@6699d673: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:21:54.381+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:21:54.422+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:21:54.422+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:21:59.459+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:21:59.460+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@77246383: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:21:59.463+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:21:59.476+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:21:59.476+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:04.513+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:22:04.513+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@23343c40: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:22:04.514+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:04.538+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:22:04.538+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:09.576+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:22:09.577+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@39da0c1a: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:22:09.579+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:09.607+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:22:09.607+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:14.635+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:22:14.635+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@6d8af854: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:22:14.636+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:14.650+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:22:14.650+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:19.674+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:22:19.675+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@a8fd622: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:22:19.677+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:19.690+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:22:19.690+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:24.723+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:22:24.723+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@58cabd90: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:22:24.725+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:24.771+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:22:24.771+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:29.796+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:22:29.797+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@5bdd459: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:22:29.799+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-11] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:29.824+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-11] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:22:29.825+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-11] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:34.853+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-11] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:22:34.853+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-11] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@12fc0a93: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:22:34.854+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-12] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:34.866+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-12] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:22:34.866+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-12] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:38.669+03:00 DEBUG 21288 --- [misterJavaBot Telegram Executor] o.sergn.service.impl.UpdateProducerImpl  : null
+2023-12-29T12:22:38.678+03:00  INFO 21288 --- [misterJavaBot Telegram Executor] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:38.702+03:00 ERROR 21288 --- [misterJavaBot Telegram Executor] o.t.t.u.DefaultBotSession                : java.net.ConnectException: Connection refused: no further information
+
+org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+	at org.springframework.amqp.rabbit.support.RabbitExceptionTranslator.convertRabbitAccessException(RabbitExceptionTranslator.java:61) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:594) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory.createConnection(CachingConnectionFactory.java:711) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.createConnection(ConnectionFactoryUtils.java:257) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.doExecute(RabbitTemplate.java:2225) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2198) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.send(RabbitTemplate.java:1119) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertAndSend(RabbitTemplate.java:1182) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertAndSend(RabbitTemplate.java:1164) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.sergn.service.impl.UpdateProducerImpl.produce(UpdateProducerImpl.java:19) ~[classes/:na]
+	at org.sergn.controller.UpdateController.processPhotoMessage(UpdateController.java:62) ~[classes/:na]
+	at org.sergn.controller.UpdateController.distributeMessagesByType(UpdateController.java:45) ~[classes/:na]
+	at org.sergn.controller.UpdateController.processUpdate(UpdateController.java:32) ~[classes/:na]
+	at org.sergn.controller.TelegramBot.onUpdateReceived(TelegramBot.java:40) ~[classes/:na]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27) ~[telegrambots-meta-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:312) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at com.rabbitmq.client.impl.SocketFrameHandlerFactory.create(SocketFrameHandlerFactory.java:61) ~[amqp-client-5.17.1.jar:5.17.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1234) ~[amqp-client-5.17.1.jar:5.17.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1184) ~[amqp-client-5.17.1.jar:5.17.1]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connectAddresses(AbstractConnectionFactory.java:632) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connect(AbstractConnectionFactory.java:607) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:557) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	... 15 common frames omitted
+
+2023-12-29T12:22:39.900+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-12] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:22:39.901+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-12] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@38a580d5: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:22:39.902+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-13] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:39.925+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-13] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:22:39.925+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-13] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:44.953+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-13] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:22:44.953+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-13] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@292ac633: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:22:44.954+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-14] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:44.956+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-14] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:22:44.956+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-14] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:49.982+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-14] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:22:49.983+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-14] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@7b316137: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:22:49.985+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-15] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:50.008+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-15] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:22:50.008+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-15] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:54.420+03:00 DEBUG 21288 --- [misterJavaBot Telegram Executor] o.sergn.service.impl.UpdateProducerImpl  : 123
+2023-12-29T12:22:54.420+03:00  INFO 21288 --- [misterJavaBot Telegram Executor] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:54.442+03:00 ERROR 21288 --- [misterJavaBot Telegram Executor] o.t.t.u.DefaultBotSession                : java.net.ConnectException: Connection refused: no further information
+
+org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+	at org.springframework.amqp.rabbit.support.RabbitExceptionTranslator.convertRabbitAccessException(RabbitExceptionTranslator.java:61) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:594) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory.createConnection(CachingConnectionFactory.java:711) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.createConnection(ConnectionFactoryUtils.java:257) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.doExecute(RabbitTemplate.java:2225) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2198) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.send(RabbitTemplate.java:1119) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertAndSend(RabbitTemplate.java:1182) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.convertAndSend(RabbitTemplate.java:1164) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.sergn.service.impl.UpdateProducerImpl.produce(UpdateProducerImpl.java:19) ~[classes/:na]
+	at org.sergn.controller.UpdateController.processTextMessage(UpdateController.java:53) ~[classes/:na]
+	at org.sergn.controller.UpdateController.distributeMessagesByType(UpdateController.java:41) ~[classes/:na]
+	at org.sergn.controller.UpdateController.processUpdate(UpdateController.java:32) ~[classes/:na]
+	at org.sergn.controller.TelegramBot.onUpdateReceived(TelegramBot.java:40) ~[classes/:na]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27) ~[telegrambots-meta-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:312) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at com.rabbitmq.client.impl.SocketFrameHandlerFactory.create(SocketFrameHandlerFactory.java:61) ~[amqp-client-5.17.1.jar:5.17.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1234) ~[amqp-client-5.17.1.jar:5.17.1]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1184) ~[amqp-client-5.17.1.jar:5.17.1]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connectAddresses(AbstractConnectionFactory.java:632) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connect(AbstractConnectionFactory.java:607) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:557) ~[spring-rabbit-3.0.10.jar:3.0.10]
+	... 15 common frames omitted
+
+2023-12-29T12:22:55.053+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-15] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:22:55.053+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-15] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@2af84a2d: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:22:55.054+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-16] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:22:55.085+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-16] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:22:55.085+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-16] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:23:00.108+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-16] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:23:00.109+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-16] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@14cc11b3: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:23:00.110+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-17] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:23:00.126+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-17] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:23:00.126+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-17] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:23:05.186+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-17] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:23:05.186+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-17] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@5453877d: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:23:05.187+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-18] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:23:05.189+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-18] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:23:05.189+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-18] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:23:10.207+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-18] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:23:10.208+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-18] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@1b1ba74b: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:23:10.210+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-19] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:23:10.226+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-19] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:23:10.227+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-19] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:23:15.253+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-19] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:23:15.253+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-19] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@5f016ca: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:23:15.254+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-20] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:23:15.255+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-20] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:23:15.256+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-20] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:23:20.270+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-20] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:23:20.270+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-20] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@504a77f0: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:23:20.273+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-21] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:23:20.286+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-21] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:23:20.286+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-21] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:23:25.313+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-21] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:23:25.313+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-21] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@5e9d173c: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:23:25.314+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-22] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:23:25.347+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-22] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:23:25.348+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-22] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:23:30.387+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-22] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:23:30.388+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-22] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@12fb7a63: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:23:30.390+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-23] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:23:30.415+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-23] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:23:30.415+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-23] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:23:35.445+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-23] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:23:35.445+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-23] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@6e63191c: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:23:35.447+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-24] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:23:35.461+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-24] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:23:35.461+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-24] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:23:40.501+03:00  WARN 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-24] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: no further information
+2023-12-29T12:23:40.501+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-24] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@1786dc01: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2023-12-29T12:23:40.502+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-25] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:23:40.505+03:00 ERROR 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-25] o.s.a.r.l.SimpleMessageListenerContainer : Failed to check/redeclare auto-delete queue(s).
+2023-12-29T12:23:40.505+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-25] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:23:40.739+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-26] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2023-12-29T12:23:40.739+03:00  INFO 21288 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-26] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2023-12-29T12:24:59.546+03:00  INFO 13996 --- [main] org.sergn.DispatcherApplication          : Starting DispatcherApplication using Java 17.0.7 with PID 13996 (C:\Users\SANovikov\IdeaProjects\teleServer\dispatcher\target\classes started by SANovikov in C:\Users\SANovikov\IdeaProjects\teleServer)
+2023-12-29T12:24:59.548+03:00  INFO 13996 --- [main] org.sergn.DispatcherApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-12-29T12:25:00.346+03:00  INFO 13996 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
+2023-12-29T12:25:00.355+03:00  INFO 13996 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-29T12:25:00.355+03:00  INFO 13996 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2023-12-29T12:25:00.446+03:00  INFO 13996 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-12-29T12:25:00.447+03:00  INFO 13996 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 864 ms
+2023-12-29T12:25:01.367+03:00  WARN 13996 --- [main] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: org.springframework.amqp.rabbit.core.RabbitAdmin
+2023-12-29T12:25:01.444+03:00  INFO 13996 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path ''
+2023-12-29T12:25:01.447+03:00  INFO 13996 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T12:25:01.515+03:00  INFO 13996 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#2b1cd7bc:0/SimpleConnection@43e8f1c [delegate=amqp://user@127.0.0.1:5672/, localPort=61585]
+2023-12-29T12:25:01.575+03:00  INFO 13996 --- [main] org.sergn.DispatcherApplication          : Started DispatcherApplication in 2.495 seconds (process running for 3.071)
+2023-12-29T12:25:44.717+03:00 DEBUG 13996 --- [misterJavaBot Telegram Executor] o.sergn.service.impl.UpdateProducerImpl  : Hello
+2023-12-29T12:25:49.788+03:00 DEBUG 13996 --- [misterJavaBot Telegram Executor] o.sergn.service.impl.UpdateProducerImpl  : null
+2023-12-29T12:28:19.434+03:00 DEBUG 13996 --- [misterJavaBot Telegram Executor] o.sergn.service.impl.UpdateProducerImpl  : null
+2023-12-29T12:43:04.114+03:00 DEBUG 13996 --- [misterJavaBot Telegram Executor] o.sergn.service.impl.UpdateProducerImpl  : null
+2023-12-29T13:27:05.772+03:00  INFO 13996 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2023-12-29T13:27:06.220+03:00  INFO 13996 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2023-12-29T13:27:49.079+03:00  INFO 23044 --- [main] org.sergn.DispatcherApplication          : Starting DispatcherApplication using Java 17.0.7 with PID 23044 (C:\Users\SANovikov\IdeaProjects\teleServer\dispatcher\target\classes started by SANovikov in C:\Users\SANovikov\IdeaProjects\teleServer)
+2023-12-29T13:27:49.086+03:00  INFO 23044 --- [main] org.sergn.DispatcherApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-12-29T13:27:51.103+03:00  INFO 23044 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
+2023-12-29T13:27:51.130+03:00  INFO 23044 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-29T13:27:51.131+03:00  INFO 23044 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2023-12-29T13:27:51.428+03:00  INFO 23044 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-12-29T13:27:51.429+03:00  INFO 23044 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2231 ms
+2023-12-29T13:27:53.399+03:00  WARN 23044 --- [main] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: org.springframework.amqp.rabbit.core.RabbitAdmin
+2023-12-29T13:27:53.508+03:00  INFO 23044 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path ''
+2023-12-29T13:27:53.514+03:00  INFO 23044 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T13:27:53.631+03:00  INFO 23044 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#1682c08c:0/SimpleConnection@1515f782 [delegate=amqp://user@127.0.0.1:5672/, localPort=65198]
+2023-12-29T13:27:53.734+03:00  INFO 23044 --- [main] org.sergn.DispatcherApplication          : Started DispatcherApplication in 5.722 seconds (process running for 7.048)
+2023-12-29T13:28:24.373+03:00 DEBUG 23044 --- [misterJavaBot Telegram Executor] o.sergn.service.impl.UpdateProducerImpl  : null
+2023-12-29T13:30:12.557+03:00  INFO 23044 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2023-12-29T13:30:13.383+03:00  INFO 23044 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2023-12-29T13:31:46.013+03:00  INFO 23316 --- [main] org.sergn.DispatcherApplication          : Starting DispatcherApplication using Java 17.0.7 with PID 23316 (C:\Users\SANovikov\IdeaProjects\teleServer\dispatcher\target\classes started by SANovikov in C:\Users\SANovikov\IdeaProjects\teleServer)
+2023-12-29T13:31:46.017+03:00  INFO 23316 --- [main] org.sergn.DispatcherApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-12-29T13:31:47.658+03:00  INFO 23316 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
+2023-12-29T13:31:47.671+03:00  INFO 23316 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-29T13:31:47.672+03:00  INFO 23316 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2023-12-29T13:31:47.820+03:00  INFO 23316 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-12-29T13:31:47.820+03:00  INFO 23316 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1727 ms
+2023-12-29T13:31:48.965+03:00  WARN 23316 --- [main] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: org.springframework.amqp.rabbit.core.RabbitAdmin
+2023-12-29T13:31:49.033+03:00  INFO 23316 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path ''
+2023-12-29T13:31:49.037+03:00  INFO 23316 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T13:31:49.102+03:00  INFO 23316 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#479b5066:0/SimpleConnection@6eede35e [delegate=amqp://user@127.0.0.1:5672/, localPort=65324]
+2023-12-29T13:31:49.166+03:00  INFO 23316 --- [main] org.sergn.DispatcherApplication          : Started DispatcherApplication in 4.17 seconds (process running for 5.511)
+2023-12-29T13:32:03.182+03:00 DEBUG 23316 --- [misterJavaBot Telegram Executor] o.sergn.service.impl.UpdateProducerImpl  : null
+2023-12-29T13:32:50.920+03:00  INFO 23316 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2023-12-29T13:32:51.688+03:00  INFO 23316 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2023-12-29T13:32:56.388+03:00  INFO 19612 --- [main] org.sergn.DispatcherApplication          : Starting DispatcherApplication using Java 17.0.7 with PID 19612 (C:\Users\SANovikov\IdeaProjects\teleServer\dispatcher\target\classes started by SANovikov in C:\Users\SANovikov\IdeaProjects\teleServer)
+2023-12-29T13:32:56.390+03:00  INFO 19612 --- [main] org.sergn.DispatcherApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-12-29T13:32:57.214+03:00  INFO 19612 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
+2023-12-29T13:32:57.224+03:00  INFO 19612 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-29T13:32:57.224+03:00  INFO 19612 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2023-12-29T13:32:57.323+03:00  INFO 19612 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-12-29T13:32:57.323+03:00  INFO 19612 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 894 ms
+2023-12-29T13:32:58.189+03:00  WARN 19612 --- [main] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: org.springframework.amqp.rabbit.core.RabbitAdmin
+2023-12-29T13:32:58.244+03:00  INFO 19612 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path ''
+2023-12-29T13:32:58.246+03:00  INFO 19612 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T13:32:58.325+03:00  INFO 19612 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#2b1cd7bc:0/SimpleConnection@43e8f1c [delegate=amqp://user@127.0.0.1:5672/, localPort=65390]
+2023-12-29T13:32:58.373+03:00  INFO 19612 --- [main] org.sergn.DispatcherApplication          : Started DispatcherApplication in 2.496 seconds (process running for 3.142)
+2023-12-29T13:33:19.528+03:00 DEBUG 19612 --- [misterJavaBot Telegram Executor] o.sergn.service.impl.UpdateProducerImpl  : null
+2023-12-29T13:37:46.782+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connection reset
+
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:323) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803) ~[na:na]
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1465) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069) ~[na:na]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+
+2023-12-29T13:38:08.301+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:38:29.827+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:38:51.332+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:39:12.838+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:39:34.358+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:39:55.866+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:40:17.373+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:40:38.892+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:41:00.413+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:41:21.932+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:41:43.440+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:42:04.950+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:42:26.467+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:42:48.021+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:43:09.527+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:43:31.044+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:43:52.553+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:44:14.062+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:44:35.576+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:44:57.095+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:45:18.598+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:45:40.107+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:46:01.615+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:46:23.123+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:46:44.629+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:47:06.148+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:47:27.663+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:47:49.182+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:48:10.699+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:48:32.220+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:48:53.735+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:49:15.251+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T13:49:36.759+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T14:47:57.838+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+
+org.apache.http.conn.HttpHostConnectException: Connect to api.telegram.org:443 [api.telegram.org/149.154.167.220] failed: Connection timed out: no further information
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:368) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	... 10 common frames omitted
+
+2023-12-29T15:18:54.819+03:00  INFO 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Read timed out
+
+java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803) ~[na:na]
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1465) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069) ~[na:na]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.16.jar:4.4.16]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+
+2023-12-29T18:20:59.096+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Connection reset
+
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:323) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803) ~[na:na]
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.decode(SSLSocketInputRecord.java:160) ~[na:na]
+	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:111) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1510) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketImpl.readHandshakeRecord(SSLSocketImpl.java:1425) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:455) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:426) ~[na:na]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.createLayeredSocket(SSLConnectionSocketFactory.java:436) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:384) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+
+2023-12-29T18:20:59.705+03:00  INFO 19612 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@537ca28e: tags=[[amq.ctag-vEhhemechKt3SG9Jib4Jqw]], channel=Cached Rabbit Channel: AMQChannel(amqp://user@127.0.0.1:5672/,1), conn: Proxy@58164e9a Shared Rabbit Connection: SimpleConnection@43e8f1c [delegate=amqp://user@127.0.0.1:5672/, localPort=65390], acknowledgeMode=AUTO local queue size=0
+2023-12-29T18:20:59.728+03:00  INFO 19612 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-12-29T18:20:59.813+03:00  INFO 19612 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#2b1cd7bc:1/SimpleConnection@121aca3d [delegate=amqp://user@127.0.0.1:5672/, localPort=54617]
+2023-12-29T18:20:59.783+03:00 ERROR 19612 --- [misterJavaBot Telegram Connection] o.t.t.u.DefaultBotSession                : Этот хост неизвестен (api.telegram.org)
+
+java.net.UnknownHostException: Этот хост неизвестен (api.telegram.org)
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[na:na]
+	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:934) ~[na:na]
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1543) ~[na:na]
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:852) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1385) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1306) ~[na:na]
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:249) ~[telegrambots-6.8.0.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.8.0.jar:na]
+
+2023-12-29T19:00:31.147+03:00  INFO 19612 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2023-12-29T19:00:31.836+03:00  INFO 19612 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.

@@ -1,0 +1,21 @@
+version: '3'
+services:
+  localRabbitMQ:
+    image: rabbitmq:3-management-alpine
+    container_name: myrabbit
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+    ports:
+      - 5672:5672
+      - 15672:15672
+  my-postgres:
+    image: postgres
+    restart: always
+    container_name: postgre
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: admin
+      POSTGRES_DB: mydb
+    ports:
+      - 5999:5432

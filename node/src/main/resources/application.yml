@@ -1,0 +1,31 @@
+server:
+  port: 8009
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: user
+    password: password
+  datasource:
+    username: admin
+    password: admin
+    url: jdbc:postgresql://localhost:5999/mydb
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        hbm2ddl:
+          auto: create
+
+botName: "misterJavaBot"
+token : "6973903523:AAGf0_Rd7rQoO6XlY3DhdUfPsmozMzrjghY"
+service:
+    mail:
+      uri: test
+  file_info:
+    uri: https://api.telegram.org/bot{token}/getFile?file_id={fileId}
+  file_storage:
+    uri: https://api.telegram.org/file/bot{token}/{filePath}
+
+link.address: 127.0.0.1:8010
+salt: 1234

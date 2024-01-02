@@ -1,0 +1,21 @@
+server.port: 8011
+
+spring:
+  mail:
+    host: smtp.mail.ru
+    username: pertov192tea@mail.ru
+    passwordK: ExternalApp2023
+    password: GaLoP198
+    protocol: smtps
+    port: 465
+    smtp.auth: true
+    smtp.starttls.enabled: false
+    smtp.ssl.protocols: TLSv1.2
+    smtp.username: pertov192tea@mail.ru
+    smtp.password: GaLoP198
+    smtp.ssl.enable: true
+    smtp.ssl.trust: smtp.mail.ru
+
+service:
+  activation:
+    uri: http://127.0.0.1:8086/mail/activation?id={id}

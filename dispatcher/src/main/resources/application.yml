@@ -1,0 +1,23 @@
+
+app:
+  bot:
+    token: 6973903523:AAGf0_Rd7rQoO6XlY3DhdUfPsmozMzrjghY
+    name: misterJavaBot
+    uri:
+logging:
+  level:
+    org.sergn.service.impl: debug
+  file:
+    name: ./log/dispatcher.log
+spring:
+  rabbitmq:
+    #Если мы подключаемся к localhost то автоматически использует логин quest пароль quest
+    #Поэтому укажем конкретный вариант
+    host: localhost
+    port: 5672
+    username: user
+    password: password
+server:
+  port: 8084
+  ssl:
+    enabled: false
